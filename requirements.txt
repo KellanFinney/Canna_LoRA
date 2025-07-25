@@ -1,0 +1,42 @@
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.24.0
+peft>=0.7.0
+trl>=0.7.0
+
+# Quantization and optimization
+bitsandbytes>=0.41.0
+# flash-attn>=2.3.0  # Optional: Uncomment if you have compatible hardware
+
+# Data generation and processing
+docling>=1.0.0
+litellm>=1.0.0
+openai>=1.0.0
+pydantic>=2.0.0
+
+# Configuration and data handling
+pyyaml>=6.0.0
+huggingface-hub>=0.19.0
+
+# Training and evaluation
+tensorboard>=2.14.0
+evaluate>=0.4.0
+
+# Utility libraries
+colorama>=0.4.6
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Logging and monitoring
+wandb>=0.16.0
+
+# System utilities
+psutil>=5.9.0
+GPUtil>=1.4.0
+
+# Development tools
+jupyter>=1.0.0
+ipywidgets>=8.0.0 

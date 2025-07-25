@@ -1,0 +1,85 @@
+[project]
+name = "lora-datagen"
+version = "1.0.0"
+description = "Complete end-to-end LoRA fine-tuning pipeline: PDF to trained model (adapted from Nick Renotte's work)"
+authors = [
+    { name = "Kellan Finney", email = "kellan@8threv.com" },
+    { name = "Nick Renotte (Original Author)", email = "nick@nickrenotte.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["machine-learning", "lora", "fine-tuning", "synthetic-data", "pdf-processing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.36.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.24.0",
+    "peft>=0.7.0",
+    "trl>=0.7.0",
+    "bitsandbytes>=0.41.0",
+    "docling>=1.0.0",
+    "litellm>=1.0.0",
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0.0",
+    "huggingface-hub>=0.19.0",
+    "colorama>=0.4.6",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "psutil>=5.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0"
+]
+
+monitoring = [
+    "tensorboard>=2.14.0",
+    "wandb>=0.16.0",
+    "GPUtil>=1.4.0"
+]
+
+gpu = [
+    "flash-attn>=2.3.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/KellanFinney/lora-datagen"
+Repository = "https://github.com/KellanFinney/lora-datagen"
+Documentation = "https://github.com/KellanFinney/lora-datagen#readme"
+"Bug Tracker" = "https://github.com/KellanFinney/lora-datagen/issues"
+"Original Work" = "https://github.com/nickrenotte/lora-finetuning"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"] 

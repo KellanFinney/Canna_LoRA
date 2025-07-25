@@ -1,0 +1,284 @@
+# LoRA DataGen .gitignore
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============================================================================
+# Virtual Environments
+# ============================================================================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# ============================================================================
+# Configuration & Secrets
+# ============================================================================
+config.yaml
+.env.local
+.env.production
+.env.development
+secrets.yaml
+api_keys.txt
+*.key
+*.pem
+
+# Keep example configs
+!config.yaml.example
+!.env.example
+
+# ============================================================================
+# Data Files (Large files that shouldn't be in repo)
+# ============================================================================
+# Input PDFs
+pdfs/
+*.pdf
+
+# Generated datasets
+data/
+outputs/
+datasets/
+*.json
+*.jsonl
+*.csv
+*.parquet
+
+# Keep example data
+!science_training_data.json
+!*example*.json
+
+# ============================================================================
+# Logs & Temporary Files
+# ============================================================================
+logs/
+*.log
+*.log.*
+.log
+temp/
+tmp/
+cache/
+.cache/
+
+# ============================================================================
+# Model Files & Checkpoints
+# ============================================================================
+models/
+checkpoints/
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.onnx
+
+# LoRA Training Outputs
+granite-science-sft/
+granite-science-final/
+granite-science-lora-adapter/
+*/checkpoint-*/
+*/pytorch_model.bin
+*/adapter_model.bin
+
+# TensorBoard logs
+runs/
+tb_logs/
+tensorboard_logs/
+
+# ============================================================================
+# IDE & Editor Files
+# ============================================================================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================================================
+# OS Files
+# ============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# Testing & Coverage
+# ============================================================================
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# ============================================================================
+# Documentation
+# ============================================================================
+docs/_build/
+.readthedocs.yml
+site/
+
+# ============================================================================
+# Package managers
+# ============================================================================
+# Poetry
+poetry.lock
+
+# Pipenv
+Pipfile.lock
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================================================
+# Database files
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================================================
+# Compression & Archives
+# ============================================================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ============================================================================
+# Project-specific
+# ============================================================================
+# Generated batch files (but keep examples)
+science_training_batch_*.json
+!science_training_batch_001.json.example
+
+# Quality assessment outputs
+qualityresults.json
+instructionquality.json
+
+# HuggingFace cache
+.cache/huggingface/
+
+# Weights & Biases
+wandb/
+
+# GPU memory dumps
+*.nvprof
+
+# ============================================================================
+# Backup files
+# ============================================================================
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# ============================================================================
+# Temporary processing files
+# ============================================================================
+processing/
+intermediate/
+chunks/
+embeddings/
+
+# Keep important directories but ignore contents
+!pdfs/.gitkeep
+!data/.gitkeep
+!outputs/.gitkeep
+!logs/.gitkeep

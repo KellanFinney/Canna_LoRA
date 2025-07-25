@@ -1,0 +1,116 @@
+# LoRA DataGen + Training Configuration Example
+# Copy this file to config.yaml and customize for your setup
+
+# Data Generation Settings
+data_generation:
+  # Directory containing PDF files to process
+  pdf_directory: "./pdfs"
+  
+  # Directory to save generated JSON files
+  output_directory: "./data"
+  
+  # Number of PDFs to process per batch (affects JSON file size)
+  pdfs_per_batch: 5
+  
+  # Number of Q&A pairs to generate per text chunk
+  qa_pairs_per_chunk: 5
+
+# OpenAI API Settings
+openai:
+  # Model to use for data generation
+  # Options: "gpt-4o-mini" (recommended), "gpt-4o", "gpt-3.5-turbo"
+  model: "gpt-4o-mini"
+  
+  # Maximum tokens for API responses
+  max_tokens: 2000
+  
+  # Temperature for response generation (0.0-1.0)
+  temperature: 0.7
+  
+  # Rate limiting (requests per minute)
+  rate_limit: 490
+
+# Processing Settings
+processing:
+  # Number of parallel workers for PDF processing
+  max_workers: 30
+  
+  # Resume from existing batches if interrupted
+  resume_from_existing: true
+
+# Quality Assessment Settings
+quality:
+  # Local LLM model for quality assessment (using Ollama)
+  local_model: "ollama_chat/qwen2.5:14b"
+  
+  # Minimum score thresholds (1-10 scale)
+  min_accuracy_score: 6
+  min_style_score: 6
+  
+  # Input file for quality assessment
+  input_file: "./data/instruction.json"
+  
+  # Output files
+  filtered_output: "./data/instructionquality.json"
+  quality_report: "./qualityresults.json"
+
+# Data Loading Settings
+data_loading:
+  # Pattern for finding generated batch files
+  batch_file_pattern: "science_training_batch_*.json"
+  
+  # Train/test split ratio
+  test_size: 0.1
+  
+  # Random seed for reproducible splits
+  random_seed: 42
+
+# LoRA Training Settings
+training:
+  # Base model configuration
+  base_model: "microsoft/DialoGPT-medium"  # Change to your preferred model
+  
+  # LoRA configuration
+  lora_r: 128                    # LoRA rank
+  lora_alpha: 256               # LoRA alpha
+  lora_dropout: 0.1             # LoRA dropout
+  
+  # Training hyperparameters
+  num_epochs: 3                 # Number of training epochs
+  batch_size: 2                 # Per-device batch size
+  learning_rate: 1e-4           # Learning rate
+  max_seq_length: 2048          # Maximum sequence length
+  
+  # Output directories
+  output_dir: "./granite-science-sft"
+  final_model_dir: "./granite-science-final"
+  adapter_dir: "./granite-science-lora-adapter"
+
+# HuggingFace Integration (for future dataset publishing)
+huggingface:
+  # Dataset repository name (when ready to publish)
+  dataset_repo: "your-username/your-dataset-name"
+  
+  # Model repository name (for trained models)
+  model_repo: "your-username/your-model-name"
+  
+  # Dataset description
+  description: "High-quality synthetic Q&A dataset for LoRA fine-tuning"
+  
+  # Dataset tags
+  tags: ["synthetic", "qa", "lora", "fine-tuning"]
+
+# Advanced Settings (optional)
+advanced:
+  # Retry attempts for failed API calls
+  max_retries: 3
+  
+  # Delay between retries (seconds)
+  retry_delay: 5
+  
+  # Enable debug logging
+  debug: false
+  
+  # GPU settings
+  mixed_precision: true         # Use mixed precision training
+  gradient_checkpointing: true  # Enable gradient checkpointing 
